@@ -1,0 +1,52 @@
+{% extends 'student_base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row heading my-3">
+<div class="text-center fs-3">lectures <b class="text-mycolor1">Video
+     <i class="fa-solid fa-video"></i></b>
+     <hr class="w-25 mx-auto">
+     We Believe To Make IT Industry More Reliable For People.
+    </div>
+</div>   
+<!--heading end-->  
+
+<div class="row">
+  <div class="col-sm-10 mx-auto bg-light shadow-lg p-4">
+    <div class="row">
+      <div class="col-sm-4">
+        <ul class="list-group">
+          <li class="list-group-item bg-mycolor1 fw-bold text-light">CATEGORY</li>
+          <li class="list-group-item">PYTHON</li>
+        </ul>
+      </div>
+      <div class="col-sm-8">
+        <!-- start lecture card-->
+
+        <div class="card mb-3 border-0 shadow-lg my-2">
+  <div class="row g-0">
+    <div class="col-md-4">
+     <iframe class="img-thumbnail" src="https://www.youtube.com/embed/Hx0AljEXO1k?si=53t7XP8GdETgIXPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-body-secondary">
+          <b>
+          <i class="fa-solid fa-calendar bg-mycolor1"></i> Posted Date:25-07-2025</b></small>
+          <span class="badge bg-mycolor1 float-end text-light">Python</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- end lecture card-->
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'student_base.html' %}
+{% load static %}
+
+{% block content %}
+{% if not request.session.email %}
+<script>
+    alert("you have to login first");location.href="/login/"
+</script>
+{% endif %}
+<div class="row heading mb-5">
+<div class="text-center fs-3">My <b class="text-mycolor1"> Task
+     <i class="fa-solid fa-key"></i></b>
+     <hr class="w-25 mx-auto">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </div>
+
+</div>
+<!--heading end-->
+
+<div class="row">
+    <form method="post" action="/student/tsubmitted/" enctype="multipart/form-data">  
+        {% csrf_token %}
+    <div class="col-sm-8 mx-auto">
+        <table class="table table-striped">
+            <tr>
+            <th>Title/Description</th>
+            <th>Download Task</th>
+            <th>Upload Task</th>
+            <th>submit</th>
+            </tr>
+            {% for r in data %}
+            <tr>
+                <td>
+                <b>{{r.title}}</b>
+                <p>{{r.task_info | slice:50}}</p>
+                </td>
+                <td><a href="/{{r.taskfile}}" class="btn btn-danger">
+                    <i class="fa-solid fa-download"></i>Download</a></td>
+                    <td>
+                    <input type="file" name="fu">
+                    <input type="hidden" value="{{r.title}}" name="title">
+                    <input type="hidden" value="{{r.id}}" name="tid"/>
+                     </td>
+                
+                <td><input type="submit" class="btn btn-danger" value="Upload"></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </form>
+    </div>
+</div>
+
+{% endblock %} 

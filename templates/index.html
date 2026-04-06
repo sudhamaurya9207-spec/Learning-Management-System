@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+          <!--slider section start-->
+            <div class="row slider">
+             <div class="col-sm-10 mx-auto">
+              <div class="row">
+                <div class="col-sm-7 pt-5">
+                  <div class="fs-2 text-center text-light text-uppercase mt-5">Welcome to Education <b class="text-mycolor1">Hub <i class="fa-solid fa-graduation-cap"></i></b></div>
+                  <div class="text-center text-light">"Unlock your potential with our cutting-edge educational resources. Our platform offers a wide range of courses and materials,
+                     carefully crafted to inspire and educate. Join us on a journey of discovery and growth, and take the first step towards achieving your goals."</div>
+                  <a href="#" class="btn bg-mycolor1 text-light mx-auto d-block w-25 mt-5 rounded-pill">Register Now</a>
+                </div>
+                
+              
+                <div class="col-sm-5 login my-5 p-5">
+                  <span class="position-absolute top-0 translate-middle start-50 bg-mycolor1 py-2 px-3 fs-3 text-light rounded-pill border border-2 border-light">Contact us</span>
+                  <form method="post">
+                    {% csrf_token %}
+                    
+                <input type="text" class="form-control txt" required placeholder="Name.." name="name"/>
+                  
+                
+                <input type="email" class="form-control txt" required placeholder="Email.." name="email"/>
+                
+                  
+                <input type="number" class="form-control txt" required placeholder="Mob.." name="mob"/>
+                <textarea class="form-control ta" required placeholder="Message" name="msg"></textarea>
+                <input type="submit" value="Save" class="form-control bg-mycolor1 btn1"/>
+                  </form>
+                </div>
+              </div>
+             </div>
+            </div>
+           <!--slider section end-->
+
+            <!--aboutus start-->
+            <hr/>
+            <div class="row aboutus">
+            <p class="text-center fs-3"> About <b class="text-mycolor1">us</b></p>
+            <div class="col-sm-10 mx-auto">
+          <div class="row">
+              <div class="col-sm-6">
+                <img src="{% static 'images/t5.jpg' %}" class="img-thumbnail w-100 imgabout"/>
+              </div>
+              <div class="col-sm-6">
+                <p class="p-3 aboutcontent">At the heart of our e-learning platform is a bold vision—to transform the 
+way people learn, grow, and succeed. In a world that's constantly evolving, 
+we believe education should be flexible, personalized, and inspiring. That’s 
+why we’ve created a dynamic digital space where learners of all 
+backgrounds can connect with skilled instructors, dive into interactive 
+online classes, tackle real-world home projects, and explore a vast digital 
+book library—all in one place.</p>
+                  <p class="px-3 aboutcontent">Learning doesn't belong within walls—it belongs everywhere. That’s the 
+belief that drives our e-learning platform.</p>
+              </div>
+
+            </div>
+            </div>
+            </div>
+            <!-- aboutus end-->
+             <!--services section start-->
+            <div class="row services py-3">
+           <p class="text-center fs-3">Our <b class="text-mycolor1">Services</b></p>
+           <div class="col-sm-10 mx-auto">
+            <!-- services row start-->
+            <div class="row py-3">
+              <!--card start -->
+              <div class="col-sm-4">
+              <div class="card mx-auto shadow-lg border border-0">
+                <div class="row g-0">
+                  <div class="col-3">
+                    <img src="{% static 'images/b1.jpeg' %}" class="img-fluid serviceimg">
+                  </div>
+                  <div class="col-9 ps-2 pt-1">
+                    <span>✅ Expert-Led Online Courses </span><br/>
+                     <span>High-quality, on-demand courses</span>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <!--card end -->
+              <!--card start -->
+              <div class="col-sm-4">
+              <div class="card mx-auto shadow-lg border border-0">
+                <div class="row g-0">
+                  <div class="col-3">
+                    <img src="{% static 'images/b2.jpeg' %}" class="img-fluid serviceimg">
+                  </div>
+                  <div class="col-9 ps-2 pt-1">
+                    <span>✅ Live Classes & Webinars </span><br/>
+                     <span>Interactive live sessions </span>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <!--card end -->
+              <!--card start -->
+              <div class="col-sm-4">
+              <div class="card mx-auto shadow-lg border border-0">
+                <div class="row g-0">
+                  <div class="col-3">
+                    <img src="{% static 'images/b.jpeg' %}" class="img-fluid serviceimg">
+                  </div>
+                  <div class="col-9 ps-2 pt-1">
+                    <span>✅ Personalized Learning Paths </span><br/>
+                     <span>Custom learning journeys</span>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <!--card end -->
+             </div>
+            <!-- services row end-->
+           </div>
+            </div>
+            <div class="row product"></div>
+            <div class="row intro"></div>
+            <div class="row contact us"></div>
+             <!--services section start-->
+             
+
+{% endblock %}

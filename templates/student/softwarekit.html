@@ -1,0 +1,59 @@
+{% extends 'student_base.html' %} 
+
+{% load static %}
+
+
+
+
+
+{% block content %}
+{% if not request.session.email %}
+<script>
+    alert("you have to login first");location.href="/login/"
+</script>
+{% endif %}
+<div class="row heading my-3">
+<div class="text-center fs-3">E- <b class="text-mycolor1"> Software-Kit
+     <i class="fa-solid fa-book"></i></b>
+     <hr class="w-25 mx-auto">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </div>
+</div>
+<!--heading end-->
+
+<div class="row">
+  
+    <div class="col-sm-8 shadow-lg p-2 mx-auto">
+        <div class="row">
+          {% for r in sdata %}
+            <!--start notes card-->
+            <div class="col-sm-6">
+            
+
+        <div class="card mb-3 border-0 shadow-lg my-2">
+  <div class="row g-0">
+    <div class="col-md-4">
+   <img src="/{{r.thumbnail}}" class="img-fluid p-4">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{r.title}}</h5>
+        <p class="card-text">{{r.software_info}}</p>
+        <p class="card-text"><small class="text-body-secondary">
+          <b>
+          <i class="fa-solid fa-calendar bg-mycolor1"></i> Posted Date:</b>{{r.posted_date}}</small>
+          <span class="btn bg-mycolor1 float-end text-light">
+          <a href="{{r.download_link}}" class="text-light"style="text-decoration: none !important;">
+            <i class="fa-solid fa-download"> Download</i></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+            <!--end notes card-->
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %} 

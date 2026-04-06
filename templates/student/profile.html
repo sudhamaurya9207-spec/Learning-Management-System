@@ -1,0 +1,62 @@
+{% extends 'student_base.html' %} 
+
+{% load static %}
+
+{% block content %}
+{% if not request.session.email %}
+<script>
+    alert("you have to login first");location.href="/login/"
+</script>
+{% endif %}
+{% for r in userinfo %} 
+
+<div class="row py-2">
+  <p class="fs-3 text-center">User <b class="text-mycolor1">Profile</b></p>
+  <div class="col-sm-10 mx-auto">
+    <div class="row py-3">
+      <div class="col-sm-6 mx-auto ">
+        <div class="card p-5 position-relative shadow-lg rounded-3 mt-5 mb-5 pb-3 border border-0" style="min-height: 200px;">
+        <img src="/{{r.picture}}" class="img-fluid mx-auto profileimg position-absolute top-0 start-50 translate-middle">
+        <h3 class="text-center username"><b class="text-mycolor1  fs-1 text-uppercase">{{r.name}}</b></h3>
+        <p class="text-center m-0">{{r.email}}</p>
+        <p class="text-center">
+           <i class="fa-brands fa-square-facebook ic"></i>
+            <i class="fa-brands fa-square-twitter ic"></i>
+            <i class="fa-brands fa-square-youtube ic"></i>
+            <i class="fa-brands fa-linkedin ic"></i>
+            <i class="fa-brands fa-instagram ic"></i>
+        </p>
+        <div class="row g-0 py-1 ps-5">
+          <div class="col-sm-3 ps-3">
+          <i class="fa-solid fa-phone"></i> Mobile No:
+          </div>
+          <div class="col-sm-9">
+            {{r.mobile}} 
+          </div>
+        </div>
+         
+         <div class="row g-0 py-1 ps-5">
+          <div class="col-sm-3 ps-3">
+          <i class="fa-solid fa-code-branch"></i>Batch
+          </div>
+          <div class="col-sm-9">
+            {{r.batch}}
+          </div>
+        </div>
+         <div class="row g-0 py-1 ps-5">
+          <div class="col-sm-3 ps-3">
+          <i class="fa-solid fa-location-dot"></i> Address:
+          </div>
+          <div class="col-sm-9">
+            {{r.address}}
+          </div>
+        </div>
+        
+        <div class="text-center mt-4"><a class="btn bg-warning"><i class="fa-solid fa-pencil"></i>Edit</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %} 

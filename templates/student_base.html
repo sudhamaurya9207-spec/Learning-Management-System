@@ -1,0 +1,386 @@
+{% load static %}
+
+<html>
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    .bg-mycolor2 {
+      background-color: #F50057;
+    }
+
+    .bg-mycolor1 {
+      background-color: #880E4F;
+    }
+
+    .text-mycolor2 {
+      color: #F50057;
+    }
+
+    .text-mycolor1 {
+      color: #880E4F;
+    }
+
+    .ic {
+      color: #880E4F;
+      height: 28px;
+      width: 28px;
+      border: 2px solid #880E4F;
+      text-align: center;
+      line-height: 28px;
+      transition: 4s;
+    }
+
+    .ic:hover {
+      transform: translate(-5px);
+      transition: 4s;
+      background-color: #880E4F;
+      color: white;
+    }
+
+    #menu {
+      background-color: transparent !important;
+
+
+    }
+
+    #menu ul li a {
+      color: white !important;
+    }
+
+    .slider {
+      min-height: 450px;
+      background: linear-gradient(45deg, rgba(0, 0, 0, .3), rgba(245, 0, 87, .8)),
+      url("{% static 'images/im.webp' %}");
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .aboutcontent {
+      font-size: 18px;
+    }
+
+    .im {
+      height: 150px;
+    }
+
+    .imgpic {
+      transition: 2s;
+      height: 200px;
+      width: 100%;
+    }
+
+    .imgpic:hover {
+      transform: scale(1.1);
+      transition: 2s;
+
+    }
+
+    .ufooter {
+      min-height: 250px;
+      background-color: black;
+
+    }
+
+    .bfooter {
+      height: 50px;
+      background: black;
+    }
+
+    .imgteam {
+      height: 300px;
+
+    }
+
+    .imgabout {
+      height: 250px;
+    }
+
+    .catic {
+      height: 60px;
+      width: 60px;
+      font-size: 30px;
+
+      border: 1px solid black;
+      border-radius: 7px;
+      line-height: 60px;
+      transition: 2s;
+    }
+
+    .catic:hover {
+      background: red;
+      color: white;
+      transition: 2s;
+    }
+
+    .catimg {
+      height: 150px;
+    }
+
+    .popularcat {
+      border: 0px;
+
+    }
+
+    .popularcat:hover {
+      transform: scale(1.09);
+      transition: 2s;
+    }
+
+    .txt {
+      height: 50px;
+      margin-bottom: 4%;
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 2px solid white !important;
+      border-radius: 0px !important;
+    }
+
+    .ta {
+      height: 80px;
+      margin-bottom: 4%;
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 2px solid white !important;
+      border-radius: 0px !important;
+    }
+
+    ::placeholder {
+      color: white !important;
+    }
+
+    .btn1 {
+      height: 50px !important;
+      color: white !important;
+    }
+
+    .login {
+      background: rgba(0, 0, 0, .3);
+      backdrop-filter: blur(5px);
+    }
+    #verticalmenu ul li{
+      list-style: none;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+    #verticalmenu ul li a{
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+    }
+    .dashboardic{
+      height: 50px;
+      width: 50px;
+      border-radius: 7px;
+      line-height: 40px;
+      padding: 5px;
+    }
+    .dashdiv{
+      margin-top: 35px;
+      margin-bottom: 15px;
+    }
+    #dashboard a{
+      text-decoration: none;
+    }
+    .dashboardcard:hover{
+      transform: scale(1.1);
+      transition: 2s;
+    }
+    .dashboardcard{
+      transition: 2s;
+    }
+    .profileimg
+    {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      background: #f3f3f3;
+      border: 1px solid black;
+    }
+    .username
+    {
+      margin-top: 85px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!--startheader-->
+    <div class="row header">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10 py-4">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="fs-2"><b>EDUCATION</b> <b class="text-mycolor1">HUB <i class="fa-solid fa-graduation-cap"></i></b></div>
+          </div>
+          <div class="col-sm-2">
+            <i class="fa-solid fa-envelope ic"></i>
+            <b>Mail Us</b> <br>
+            ap3078016@gmail.com
+          </div>
+          <div class="col-sm-2">
+            <i class="fa-solid fa-phone ic"></i><b>Call Us</b>
+
+            <br>9115219478
+          </div>
+          <div class="col-sm-2 pt-3">
+            <i class="fa-brands fa-square-facebook ic"></i>
+            <i class="fa-brands fa-square-twitter ic"></i>
+            <i class="fa-brands fa-square-youtube ic"></i>
+           
+          </div>
+          <div class="col-sm-3 p-2">
+
+           {% if request.session.email %}
+                      <img src="/{{request.session.userpic}}" class="img-thumbnail rounded-circle" style="height: 60px;width: 60px;">
+                      <b>{{request.session.name}}</b>
+                      {{request.session.email}}
+                      
+                      {% else %}
+                      <img src="{% static 'images/user.webp' %}" class="img-thumbnail rounded-circle" style="height: 60px;width: 60px;">
+                      <b>guest@gmail.com</b>
+                      {% endif %} 
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <!--end header-->
+
+    <!--start menu-->
+    <!--
+      <div class="row menu bg-mycolor1">
+           <div class="col-sm-8 mx-auto">
+
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
+  <div class="container-fluid">
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/index/"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/aboutus/"><i class="fa-solid fa-building"></i> About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register/"><i class="fa-solid fa-building"></i> Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-gear"></i> services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-phone"></i> Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/gallery/">
+            <i class="fa-solid fa-image"></i> Picture gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/team/">
+            <i class="fa-solid fa-user-plus"></i> Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/category/">
+            <i class="fa-solid fa-tags"></i> Category</a>
+        </li>
+            
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+      
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+           
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+          
+        </li>
+           
+
+
+      <li class="nav-item">
+          <a class="nav-link">
+            <i class="fa-solid fa-wifi"></i> Feedback</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login/">
+            <i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        </li>
+       
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+            </div>
+            </div> -->
+   <!--end menu--> 
+    
+    <!--vertical menu start-->
+    <div class="row bg-mycolor1">
+      <div col-sm-12>
+        <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+      aria-controls="offcanvasExample">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+    
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body bg-mycolor1" id="verticalmenu">
+        <ul>
+          <li> <a href="/student/dashboard/"><i class="fa-solid fa-house"></i> HOME</a> </li>
+          <li> <a href="/student/lecturecat/"><i class="fa-solid fa-book"></i>Videos by Category</a> </li>
+          <li> <a href="/student/lectures/"><i class="fa-solid fa-video"></i> Lecture</a> </li>
+          
+          
+          <li> <a href="/student/notes/"><i class="fa-solid fa-book"></i> E-notes</a> </li>
+          <li> <a href="/student/profile/"><i class="fa-solid fa-book"></i> My Profile</a> </li>
+          
+          <li> <a href="/student/softwarekit/"><i class="fa-solid fa-key"></i> Softwarekit</a> </li>
+          <li> <a href="/student/signout/"><i class="fa-solid fa-arrow-right-from-bracket"></i> Signout</a> </li>
+          <li> <a href="/student/task/"><i class="fa-solid fa-arrow-right-from-bracket"></i> Task</a> </li>
+        </ul>
+        
+      </div>
+    </div>
+
+      </div>
+
+    </div>
+    
+    <!--vertical menu end-->
+
+    {% block content %}
+
+    {% endblock %}
+  </div>
+  </div>
+
+
+
+
+  <div class="row bfooter text-light text-center">
+    <span style="line-height: 50px;">Developed by Sarika &copy; <a href="http://www.techpile.in" target="_blank">Techpile
+        Technology</a></span>
+  </div>
+  </div>
+  <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+   
+</body>
+
+</html>

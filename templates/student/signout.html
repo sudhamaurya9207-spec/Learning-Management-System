@@ -1,0 +1,11 @@
+{% extends 'student_base.html' %} 
+
+{% load static %}
+
+{% block content %}
+{% if not request.session.email %}
+<script>
+    alert("you have to login first");location.href="/login/"
+</script>
+{% endif %}
+{% endblock %}
